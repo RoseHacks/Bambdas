@@ -1,0 +1,19 @@
+metadata:
+  language: v2-beta
+  name: "Host Header Injection Detector"
+
+define:
+  injection = "www.test.com:ss><rosehacks></rosehacks>"
+  answer = "rosehacks"
+
+given request then
+    send request:
+        headers:
+            "Host": {injection}
+
+    if {answer} in {latest.response} then
+      report issue:
+        severity: low
+        confidence: firm
+        detail: "Reflected Host header injection detected"
+    end if
