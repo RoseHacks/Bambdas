@@ -1,1 +1,3 @@
 to do
+- Look for any cookies set with user input
+- Look for CSRF tokens in cookies
