@@ -1,0 +1,3 @@
+TO DO:
+Look for sibling domains via 
+Acess-Control-Allow-Origin header to honor samesite restriction and hopefully find something like a XSS or other vuln we can abuse.
