@@ -1,0 +1,17 @@
+metadata:
+    language: v2-beta
+    name: "Sibling Domains"
+    description: "Looks in responses for potential sibling domains."
+    tags: "header, active"
+
+define:
+  answer = "Access-Control-Allow-Origin"
+
+given request then
+    send request:
+
+    if {answer} in {latest.response} then
+      report issue:
+        severity: info
+        confidence: firm
+    end if
