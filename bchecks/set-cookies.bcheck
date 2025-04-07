@@ -1,0 +1,17 @@
+metadata:
+    language: v2-beta
+    name: "Cookie Finder"
+    description: "Looks in responses for when cookies are set"
+    tags: "cookies, active"
+
+define:
+  answer = "Set-Cookie:"
+
+given request then
+    send request:
+
+    if {answer} in {latest.response} then
+      report issue:
+        severity: info
+        confidence: firm
+    end if
